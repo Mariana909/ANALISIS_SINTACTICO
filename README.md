@@ -37,6 +37,45 @@ Actividad Análisis Sintáctico
    F → pari E pard
 
    Ahora necesitamos obtener los conjuntos PRIMERO(X) y SIGUIENTE(A)
+
+   Reglas para calcular PRIMERO
+
+   1. Si X es terminal → PRIMERO(X) = { X }
+   2. Si existe X → ε → agregar ε a PRIMERO(X)
+   3. Si existe X → Y₁ Y₂ ... Yₖ → agregar PRIMERO(Y₁) sin ε. Si ε ∈ PRIMERO(Y₁), agregar PRIMERO(Y₂) sin ε, y así sucesivamente. Si todos derivan ε, agregar ε.
+
+      PRIMERO(F) = {id, num, pari}
+   
+      PRIMERO(T') = {opmul, ε}
+   
+      PRIMERO(T) = {id, num, pari}
+   
+      PRIMERO(E') = {opsuma, ε}
+   
+      PRIMERO(E) = {id, num, pari}
+   
+      PRIMERO(E'') = {id, num, pari}
+
+      Reglas para calcular SIGUIENTE
+      
+      1. $ ∈ SIGUIENTE(S') donde S' es el símbolo inicial aumentado
+      2. Si existe A → α B β → agregar PRIMERO(β) - {ε} a SIGUIENTE(B)
+      3. Si existe A → α B o A → α B β con ε ∈ PRIMERO(β) → agregar SIGUIENTE(A) a SIGUIENTE(B)
+     
+      SIGUIENTE(E'') = {$}
+
+      SIGUIENTE(E) = {$, pard}
+
+      SIGUIENTE(E') = {$, pard}
+
+      SIGUIENTE(T) = {opsuma, $, pard}
+
+      SIGUIENTE(T') = {opsuma, $, pard}
+
+      SIGUIENTE(F) = {opmul, opsuma, $, pard}
+
+      
+      
    
 5. Asociatividad y precedencia, realizando modificaciones a una gramática aritmética para hacer asociatividad por derecha, por izquierda, tener la precedencia de operadores definida matemáticamente y el orden inverso, realizar dos pruebas y comparar los resultados obtenidos con la misma cadena en cada una de las versiones de la gramática
    En antlr se tendrán 4 gramáticas, cada una con la modificación necesaria para asociatividad por derecha, asociatividad por izquierda, precedencia usual de operaciones y precedencia inversa.
