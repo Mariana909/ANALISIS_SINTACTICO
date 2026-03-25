@@ -189,27 +189,44 @@ Actividad Análisis Sintáctico
       Si IR_A(Iᵢ, A) = Iⱼ donde A es no terminal → IR_A[i, A] = j
 
 
-      ## Tabla SLR — ACCION / IR_A
+     ## Tabla SLR — ACCION / IR_A
 
 | Estado | id | num | pari | pard | opsuma | opmul | $ | E | E' | T | T' | F |
 |--------|-----|-----|------|------|--------|-------|---|---|----|---|----|---|
-| 0  | s4 | s5 | s6 | —  | —  | —   | —   | 1  | —  | 2 | —  | 3  |
-| 1  | —  | —  | —  | —  | —  | —   | acc | —  | —  | — | —  | —  |
-| 2  | —  | —  | —  | r3 | s8 | —   | r3  | —  | 7  | — | —  | —  |
-| 3  | —  | —  | —  | r6 | r6 | s10 | r6  | —  | —  | — | 9  | —  |
-| 4  | —  | —  | —  | r7 | r7 | r7  | r7  | —  | —  | — | —  | —  |
-| 5  | —  | —  | —  | r8 | r8 | r8  | r8  | —  | —  | — | —  | —  |
-| 6  | s4 | s5 | s6 | —  | —  | —   | —   | 11 | —  | 2 | —  | 3  |
-| 7  | —  | —  | —  | r1 | —  | —   | r1  | —  | —  | — | —  | —  |
-| 8  | s4 | s5 | s6 | —  | —  | —   | —   | —  | —  | 2 | —  | 3  |
-| 9  | —  | —  | —  | r4 | r4 | —   | r4  | —  | —  | — | —  | —  |
-| 10 | s4 | s5 | s6 | —  | —  | —   | —   | —  | —  | — | —  | 3  |
-| 11 | —  | —  | —  | s12| —  | —   | —   | —  | —  | — | —  | —  |
-| 12 | —  | —  | —  | r9 | r9 | r9  | r9  | —  | —  | — | —  | —  |
+| 0  | s4 | s5 | s6 | —  | —   | —   | —   | 1  | —  | 2 | —  | 3  |
+| 1  | —  | —  | —  | —  | —   | —   | acc | —  | —  | — | —  | —  |
+| 2  | —  | —  | —  | r3 | s8  | —   | r3  | —  | 7  | — | —  | —  |
+| 3  | —  | —  | —  | r6 | r6  | s10 | r6  | —  | —  | — | 9  | —  |
+| 4  | —  | —  | —  | r7 | r7  | r7  | r7  | —  | —  | — | —  | —  |
+| 5  | —  | —  | —  | r8 | r8  | r8  | r8  | —  | —  | — | —  | —  |
+| 6  | s4 | s5 | s6 | —  | —   | —   | —   | 11 | —  | 2 | —  | 3  |
+| 7  | —  | —  | —  | r1 | —   | —   | r1  | —  | —  | — | —  | —  |
+| 8  | s4 | s5 | s6 | —  | —   | —   | —   | —  | —  | 2 | —  | 3  |
+| 9  | —  | —  | —  | r4 | r4  | —   | r4  | —  | —  | — | —  | —  |
+| 10 | s4 | s5 | s6 | —  | —   | —   | —   | —  | —  | — | —  | 3  |
+| 11 | —  | —  | —  | s12| —   | —   | —   | —  | —  | — | —  | —  |
+| 12 | —  | —  | —  | r9 | r9  | r9  | r9  | —  | —  | — | —  | —  |
 
-> **sN** = shift/desplazar al estado N &nbsp;|&nbsp; **rN** = reduce/reducir por producción N &nbsp;|&nbsp; **acc** = aceptar &nbsp;|&nbsp; **—** = error sintáctico
->
-> Columnas **E, E', T, T', F** corresponden a la sección **IR_A**. Las demás a **ACCION**.
+> **sN** = shift al estado N &nbsp;|&nbsp; **rN** = reducir por producción N &nbsp;|&nbsp; **acc** = aceptar &nbsp;|&nbsp; **—** = error sintáctico  
+> Columnas **E, E', T, T', F** corresponden a **IR\_A**. Las demás a **ACCION**.
+
+### Producciones
+| N° | Producción |
+|----|-----------|
+| P1 | E  → T E' |
+| P2 | E' → opsuma T E' |
+| P3 | E' → ε |
+| P4 | T  → F T' |
+| P5 | T' → opmul F T' |
+| P6 | T' → ε |
+| P7 | F  → id |
+| P8 | F  → num |
+| P9 | F  → pari E pard |
+
+
+
+LL
+
       
    
 5. Asociatividad y precedencia, realizando modificaciones a una gramática aritmética para hacer asociatividad por derecha, por izquierda, tener la precedencia de operadores definida matemáticamente y el orden inverso, realizar dos pruebas y comparar los resultados obtenidos con la misma cadena en cada una de las versiones de la gramática
