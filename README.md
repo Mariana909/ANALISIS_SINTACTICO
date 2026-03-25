@@ -9,7 +9,15 @@ Actividad Análisis Sintáctico
 2. Realizar la comparación del algoritmo CYK con complejidad O(n³) y un algoritmo con complejidad lineal de análisis sintáctico.
    Dentro de los algoritmos de complejidad lineal para el análisis sintáctico se tienen ASD (análisis sintáctico descendente) y ASA (análisis sintáctico ascendente), es decir LL y LR.
    Por lo que dentro de la comparación por el lado de complejidad O(n³) se tendrán los algoritmos CYK y Early, mientras que por el lado de complejidad O(n) se realizará la implementación ASD con pila y tabla M, y ASA versión SLR. Las pruebas se realizarán con la misma gramática del primer punto, pero modificada para que no tenga recursividad por izquierda, pues es problemático para utilizar LL.
+   E → T E'
+   E' → opsuma T E' | ε
+   T → F T'
+   T' → opmul F T' | ε
+   F → id
+   F → num
+   F → pari E pard
 
+   
    
    
 3. Asociatividad y precedencia, realizando modificaciones a una gramática aritmética para hacer asociatividad por derecha, por izquierda, tener la precedencia de operadores definida matemáticamente y el orden inverso, realizar dos pruebas y comparar los resultados obtenidos con la misma cadena en cada una de las versiones de la gramática
