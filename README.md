@@ -20,7 +20,7 @@ Actividad Análisis Sintáctico
    F → num
    F → pari E pard
 
-   Terminales: opsuma, opmul, pari, pard, id, num, $ (fin de cadena)
+   Terminales: opsuma, opmul, pari, pard, id, num
    No terminales: E'', E, E', T, T', F
 
    SLR
