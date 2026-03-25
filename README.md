@@ -7,8 +7,11 @@ Actividad Análisis Sintáctico
    
 
 2. Realizar la comparación del algoritmo CYK con complejidad O(n³) y un algoritmo con complejidad lineal de análisis sintáctico.
+3. 
    Dentro de los algoritmos de complejidad lineal para el análisis sintáctico se tienen ASD (análisis sintáctico descendente) y ASA (análisis sintáctico ascendente), es decir LL y LR.
+   
    Por lo que dentro de la comparación por el lado de complejidad O(n³) se tendrán los algoritmos CYK y Early, mientras que por el lado de complejidad O(n) se realizará la implementación ASD con pila y tabla M, y ASA versión SLR. Las pruebas se realizarán con la misma gramática del primer punto, pero modificada para que no tenga recursividad por izquierda, pues es problemático para utilizar LL.
+   
    E → T E'
    E' → opsuma T E' | ε
    T → F T'
@@ -17,9 +20,24 @@ Actividad Análisis Sintáctico
    F → num
    F → pari E pard
 
+   Terminales: opsuma, opmul, pari, pard, id, num, $ (fin de cadena)
+   No terminales: E'', E, E', T, T', F
+
+   SLR
+   Como primer paso, obtenemos la gramática aumentada.
+   E'' → E
+   E → T E'
+   E' → opsuma T E'
+   E' → ε
+   T → F T'
+   T' → opmul F T'
+   T' → ε
+   F → id
+   F → num
+   F → pari E pard
+
+   Ahora necesitamos obtener los conjuntos PRIMERO(X) y SIGUIENTE(A)
    
-   
-   
-3. Asociatividad y precedencia, realizando modificaciones a una gramática aritmética para hacer asociatividad por derecha, por izquierda, tener la precedencia de operadores definida matemáticamente y el orden inverso, realizar dos pruebas y comparar los resultados obtenidos con la misma cadena en cada una de las versiones de la gramática
+5. Asociatividad y precedencia, realizando modificaciones a una gramática aritmética para hacer asociatividad por derecha, por izquierda, tener la precedencia de operadores definida matemáticamente y el orden inverso, realizar dos pruebas y comparar los resultados obtenidos con la misma cadena en cada una de las versiones de la gramática
    En antlr se tendrán 4 gramáticas, cada una con la modificación necesaria para asociatividad por derecha, asociatividad por izquierda, precedencia usual de operaciones y precedencia inversa.
    La gramática permite realizar operaciones como suma, resta, multiplicación y división entre números racionales. Admitiendo tanto enteros como números de punto flotante con signo. 
