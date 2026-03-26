@@ -85,29 +85,6 @@ C   → c
 
 ---
 
-## Estructura del proyecto
-
-```
-/
-├── ANTLR/
-│   ├── GRAMATICA/
-│   │   ├── gramCC.g4          # Gramática ANTLR4
-│   │   ├── gramCCLexer.py     # Generado por ANTLR — no editar
-│   │   ├── gramCCParser.py    # Generado por ANTLR — no editar
-│   │   └── gramCCVisitor.py   # Generado por ANTLR — no editar
-│   └── main.py                # Parser ANTLR: función evaluar()
-├── cyk.py                     # Implementación del algoritmo CYK
-├── comparacion.py             # Script principal de comparación y graficación
-├── genEntrada.py              # Generador de archivo de entradas
-├── entrada.txt                # Entradas de prueba (generadas)
-├── entry.txt                  # Entradas mixtas (válidas e inválidas)
-├── comparacion.png            # Gráfica de resultados (generada)
-├── requisitos.txt             # Dependencias Python
-└── README.md
-```
-
----
-
 ### Gramática completa en FNC
  
 ```
@@ -130,6 +107,29 @@ B_bas → bas
 BIG → big
 BOSS → boss
 C   → c
+```
+
+---
+
+## Estructura del proyecto
+
+```
+/
+├── ANTLR/
+│   ├── GRAMATICA/
+│   │   ├── gramCC.g4          # Gramática ANTLR4
+│   │   ├── gramCCLexer.py     # Generado por ANTLR — no editar
+│   │   ├── gramCCParser.py    # Generado por ANTLR — no editar
+│   │   └── gramCCVisitor.py   # Generado por ANTLR — no editar
+│   └── main.py                # Parser ANTLR: función evaluar()
+├── cyk.py                     # Implementación del algoritmo CYK
+├── comparacion.py             # Script principal de comparación y graficación
+├── genEntrada.py              # Generador de archivo de entradas
+├── entrada.txt                # Entradas de prueba (generadas)
+├── entry.txt                  # Entradas mixtas (válidas e inválidas)
+├── comparacion.png            # Gráfica de resultados (generada)
+├── requisitos.txt             # Dependencias Python
+└── README.md
 ```
  
 ---
