@@ -4,6 +4,7 @@ import time
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "ANTLR"))
 
 from ANTLR.main import evaluar
 from cyk import analizar_cyk
