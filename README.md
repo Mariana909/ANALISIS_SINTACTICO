@@ -108,6 +108,32 @@ C   → c
 
 ---
 
+### Gramática completa en FNC
+ 
+```
+S   → A_1 C
+S   → A_a B
+S   → A_2 S
+S   → A_3 S
+A_2 → A_1 C
+A_3 → A_a B
+A   → A_1 C
+A   → A_a B
+A_1 → A_a B
+A_a → a
+B   → B_b B_bas
+B   → B_C BOSS
+B   → BIG BOSS
+B_C → BIG C
+B_b → b
+B_bas → bas
+BIG → big
+BOSS → boss
+C   → c
+```
+ 
+---
+
 ## Requisitos previos
 
 ### Python 3.8+
