@@ -28,7 +28,8 @@ Ambos parsers coinciden en todas las entradas probadas.
 
 ### Gráfica comparativa
 
-![Comparación de rendimiento ANTLR vs CYK](comparacion.png)
+<img width="1270" height="818" alt="comparacion" src="https://github.com/user-attachments/assets/c6d7a740-a3b1-4421-878b-123015841f58" />
+
 
 La gráfica muestra con claridad la diferencia de complejidad: ANTLR mantiene tiempos de ejecución prácticamente constantes (≈0 s) para cualquier longitud de entrada, mientras que CYK crece de forma cúbica, superando 1.6 s para entradas de ~150 tokens.
 
@@ -197,4 +198,3 @@ python ANTLR/main.py entrada.txt
 | CYK    | O(n³)       | ≈ 1.6 s              |
 
 ANTLR utiliza la estrategia LL(*) con predicción adaptativa, lo que le permite analizar la entrada en tiempo lineal. CYK, al ser un algoritmo de programación dinámica de propósito general para gramáticas en FNC, tiene complejidad cúbica inherente: para una entrada de *n* tokens construye una tabla de n² celdas y cada celda puede requerir hasta *n* comparaciones.
- 
